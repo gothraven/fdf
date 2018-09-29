@@ -12,12 +12,23 @@
 #include "fdf.h"
 
 
-int main()
+int main(int argc, char const *argv[])
 {
-	void *mlx_ptr;
-	void *mlx_window_ptr;
+	t_img *image;
 
-	mlx_ptr = mlx_init();
-	mlx_window_ptr = mlx_new_window(mlx_ptr, 500, 500, "42");
-	return mlx_loop(mlx_ptr);
+	if (argc < 2 || argc > 4)
+	{
+		ft_putstr("Usage : ./fdf map.fdf\n");
+		return (-1);
+	}
+
+	image = ft_image_init();
+	image = ft_file_to_image(image, argv[1]);
+	// void *mlx_ptr;
+	// void *mlx_window_ptr;
+
+	// mlx_ptr = mlx_init();
+	// mlx_window_ptr = mlx_new_window(mlx_ptr, 500, 500, "42");
+	// return mlx_loop(mlx_ptr);
+	return (0);
 }
