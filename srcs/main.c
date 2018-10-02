@@ -6,7 +6,7 @@
 /*   By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/29 21:58:54 by szaghban          #+#    #+#             */
-/*   Updated: 2018/10/02 01:17:00 by gothraven        ###   ########.fr       */
+/*   Updated: 2018/10/02 23:49:08 by gothraven        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int main(int argc, char const *argv[])
 
 	if (argc < 2 || argc > 4)
 	{
-		ft_putstr("Usage : ./fdf map.fdf\n");
+		ft_putstr(
+			"Usage : ./fdf map.fdf [iColor] [fColor]\n\
+			 - iColor: Hexacode for the low color\n\
+			 - fColor: Hexacode for the high color\n");
 		return (-1);
 	}
 	image = ft_image_init(
@@ -26,8 +29,8 @@ int main(int argc, char const *argv[])
 		argc >= 4? argv[3]: NULL
 	);
 	image = ft_file_to_image(image, argv[1]);
-	//TODO: draw_image
-	//TODO: start_loop
+	ft_paint(image);
+	ft_engine_loop(image);
 	//TODO: free_all
 	return (0);
 }

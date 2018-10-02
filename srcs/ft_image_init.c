@@ -6,7 +6,7 @@
 /*   By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 15:15:20 by gothraven         #+#    #+#             */
-/*   Updated: 2018/10/01 23:47:44 by gothraven        ###   ########.fr       */
+/*   Updated: 2018/10/02 23:37:56 by gothraven        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_img	*ft_image_init(const char *i_color, const char *f_color)
 	image->width = 0;
 	image->height = 1;
 	image->size = 0;
+	image->points = NULL;
 	image->pixels = NULL;
 
 	return (image);

@@ -6,7 +6,7 @@
 /*   By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 15:12:32 by gothraven         #+#    #+#             */
-/*   Updated: 2018/10/01 23:57:08 by gothraven        ###   ########.fr       */
+/*   Updated: 2018/10/02 23:37:02 by gothraven        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_3dp	_3dp_(float x, float y, float z)
 {
-	t_3dp	pixel;
+	t_3dp	point;
 
-	pixel.x = x;
-	pixel.y = y;
-	pixel.z = z;
-	return (pixel);
+	point.x = x;
+	point.y = y;
+	point.z = z;
+	return (point);
 }
 
 void	ft_save_points(t_img *image, char **points)
@@ -27,12 +27,12 @@ void	ft_save_points(t_img *image, char **points)
 	int	x;
 	int offset;
 
-	SECUREE((image->pixels = (t_3dp*)realloc(
-		image->pixels, image->size  * sizeof(t_3dp))));
+	SECUREE((image->points = (t_3dp*)realloc(
+		image->points, image->size  * sizeof(t_3dp))));
 	x = -1;
 	offset = image->size - image->width;
 	while (++x < image->width)
-		image->pixels[offset++] = _3dp_(x, image->height-1, ft_atoi(points[x]));
+		image->points[offset++] = _3dp_(x, image->height-1, ft_atoi(points[x]));
 }
 
 void	ft_parse_file(int fd, t_img *image)
