@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: szaghban <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/29 21:53:50 by szaghban          #+#    #+#              #
-#    Updated: 2018/09/29 22:07:18 by szaghban         ###   ########.fr        #
+#    Updated: 2018/10/01 23:41:42 by gothraven        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -g3 -fsanitize=address -Wall -Werror -Wextra
 LIBFTL = -L./libft -lft
 MLXL = -L./minilibx_macos -lmlx
 
@@ -22,7 +22,7 @@ OBJS = $(addprefix $(OBJDIR), $(SRCFILES:.c=.o))
 OBJDIR = ./objs/
 SRCDIR = ./srcs/
 INCDIR = ./includes/
-SRCFILES = main.c
+SRCFILES = main.c ft_file_to_image.c ft_image_init.c ft_storgb.c
 
 all: $(NAME)
 
