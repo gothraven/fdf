@@ -6,7 +6,7 @@
 #    By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/29 21:53:50 by szaghban          #+#    #+#              #
-#    Updated: 2018/10/01 23:41:42 by gothraven        ###   ########.fr        #
+#    Updated: 2018/10/02 23:54:35 by gothraven        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ OBJS = $(addprefix $(OBJDIR), $(SRCFILES:.c=.o))
 OBJDIR = ./objs/
 SRCDIR = ./srcs/
 INCDIR = ./includes/
-SRCFILES = main.c ft_file_to_image.c ft_image_init.c ft_storgb.c
+SRCFILES = main.c ft_file_to_image.c ft_image_init.c ft_storgb.c\
+			ft_matrice.c ft_paint.c ft_engine.c
 
 all: $(NAME)
 
