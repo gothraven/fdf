@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_storgb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/29 21:58:54 by szaghban          #+#    #+#             */
-/*   Updated: 2018/10/02 01:17:00 by gothraven        ###   ########.fr       */
+/*   Created: 2018/09/30 15:34:31 by gothraven         #+#    #+#             */
+/*   Updated: 2018/09/30 16:50:38 by gothraven        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int main(int argc, char const *argv[])
+t_rgb	ft_storgb(char *str)
 {
-	t_img *image = NULL;
+	t_rgb	color;
+	int		i;
 
-	if (argc < 2 || argc > 4)
-	{
-		ft_putstr("Usage : ./fdf map.fdf\n");
-		return (-1);
-	}
-	image = ft_image_init(
-		argc >= 3? argv[2]: NULL,
-		argc >= 4? argv[3]: NULL
-	);
-	image = ft_file_to_image(image, argv[1]);
-	//TODO: draw_image
-	//TODO: start_loop
-	//TODO: free_all
-	return (0);
+	color.r = 0xff;
+	color.g = 0xff;
+	color.b = 0xff;
+	if (!str)
+		return (color);
+	i = ft_strlen(str) - 1;
+	i = i >= 1 ? i - 1 : i;
+	color.b = ft_xtoi(&str[i]);
+	str[i--] = '\0';
+	i = i >= 1 ? i - 1 : i;
+	color.g = ft_xtoi(&str[i]);
+	str[i--] = '\0';
+	i = i >= 1 ? i - 1 : i;
+	color.r = ft_xtoi(&str[i]);
+
+	return (color);
 }
