@@ -6,13 +6,13 @@
 /*   By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 15:12:32 by gothraven         #+#    #+#             */
-/*   Updated: 2018/10/02 23:37:02 by gothraven        ###   ########.fr       */
+/*   Updated: 2018/10/07 18:24:52 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_3dp	_3dp_(float x, float y, float z)
+t_3dp	__3dp(float x, float y, float z)
 {
 	t_3dp	point;
 
@@ -32,7 +32,14 @@ void	ft_save_points(t_img *image, char **points)
 	x = -1;
 	offset = image->size - image->width;
 	while (++x < image->width)
-		image->points[offset++] = _3dp_(x, image->height-1, ft_atoi(points[x]));
+	{
+		image->points[offset] = __3dp(x, image->height - 1, ft_atoi(points[x]));
+		if (image->points[offset].z < image->settings.zmin)
+			image->settings.zmin = image->points[offset].z;
+		if (image->points[offset].z > image->settings.zmax)
+			image->settings.zmax = image->points[offset].z;
+		offset++;
+	}
 }
 
 void	ft_parse_file(int fd, t_img *image)
@@ -76,9 +83,27 @@ int		ft_open_file(const char *fname)
 t_img	*ft_file_to_image(t_img *image, const char *fname)
 {
 	int	fd;
+	float tmp;
 
 	fd = ft_open_file(fname);
 	ft_parse_file(fd, image);
 	close(fd);
+	if (image->settings.zmin < 0)
+	{
+		fd = -1;
+		tmp = -(image->settings.zmin);
+		while (++fd < image->size)
+			image->points[fd].z += tmp;
+		image->settings.zmin += tmp;
+		image->settings.zmax += tmp;
+	}
+
 	return image;
 }
+
+
+
+
+
+
+
