@@ -6,7 +6,7 @@
 /*   By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/29 21:58:46 by szaghban          #+#    #+#             */
-/*   Updated: 2018/10/07 20:13:42 by szaghban         ###   ########.fr       */
+/*   Updated: 2018/10/10 23:11:55 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,11 @@ void	ft_translate_mtrc(float mtrc[4][4], float x, float y, float z);
 void	ft_scale_mtrc(float mtrc[4][4], float x, float y, float z);
 void	ft_mult_mtrc(float mtrc_1[4][4], float mtrc_2[4][4], float mtrc_rsult[4][4]);
 void	ft_idnt_mtrc(float mtrc[4][4]);
-void	ft_mult_vec_mtrc(t_3dp *p_src, float mtrc[4][4], t_2dp *p_dest);
+void	ft_mult_vec_mtrc(t_3dp p_src, float mtrc[4][4], t_2dp *p_dest);
 void	ft_rotate_mtrc(float mtrc[4][4], float rx, float ry, float rz);
 int		ft_paint(t_img *image);
 int		ft_repaint(t_img *image);
 void	ft_engine_loop(t_img *image);
-
+void	ft_paint_line(t_img *image, int i, int j);
 
 #endif

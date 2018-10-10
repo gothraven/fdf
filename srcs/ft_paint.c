@@ -6,7 +6,7 @@
 /*   By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/02 23:26:51 by gothraven         #+#    #+#             */
-/*   Updated: 2018/10/07 20:13:44 by szaghban         ###   ########.fr       */
+/*   Updated: 2018/10/10 22:47:07 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_camera_prespective(t_img *image)
 	SECUREE((image->pixels = (t_2dp*)malloc(image->size * sizeof(t_2dp))));
 	i = -1;
 	while (++i < image->size)
-		ft_mult_vec_mtrc(&image->points[i], camera_mtrc, &image->pixels[i]);
+		ft_mult_vec_mtrc(image->points[i], camera_mtrc, &image->pixels[i]);
 }
 
 void	ft_update_view(t_img *image)
@@ -52,7 +52,7 @@ void	ft_update_view(t_img *image)
 	ft_translate_mtrc(view_mtrc, image->settings.xmove, image->settings.ymove, 0);
 	i = -1;
 	while (++i < image->size)
-		ft_mult_vec_mtrc(&image->points[i], view_mtrc, &image->pixels[i]);
+		ft_mult_vec_mtrc(image->points[i], view_mtrc, &image->pixels[i]);
 }
 
 int		ft_paint(t_img *image)
@@ -65,13 +65,11 @@ int		ft_paint(t_img *image)
 	i = -1;
 	while (++i < image->size)
 	{
-		if ((i + 1) % image->width && (i + 1) < image-size)
-			// line h render
-		
-		if ((i + image->width) < image-size)
-			// line v render
+		if ((i + 1) % image->width && (i + 1) < image->size)
+			ft_paint_line(image, i, i + 1);
+		if ((i + image->width) < image->size)
+			ft_paint_line(image, i, i + image->width);
 	}
-	//draw lines
 	return (0);
 }
 

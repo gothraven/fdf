@@ -6,7 +6,7 @@
 /*   By: szaghban <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 19:01:35 by szaghban          #+#    #+#             */
-/*   Updated: 2018/10/07 19:16:02 by szaghban         ###   ########.fr       */
+/*   Updated: 2018/10/10 23:11:54 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,20 @@ void	ft_rotate_mtrc(float mtrc[4][4], float rx, float ry, float rz)
 	ft_mult_mtrc(mtrc, ymtrc, tmp1_mtrc);
 	ft_mult_mtrc(tmp1_mtrc, xmtrc, tmp2_mtrc);
 	ft_mult_mtrc(tmp2_mtrc, zmtrc, mtrc);
+}
+
+void	ft_mult_vec_mtrc(t_3dp p_src, float mtrc[4][4], t_2dp *p_dest)
+{
+	t_2dp pixel;
+
+	pixel.x = p_src.x * mtrc[0][0]
+			+ p_src.y * mtrc[1][0]
+			+ p_src.z * mtrc[2][0]
+			+ mtrc[3][0];
+	pixel.y = p_src.x * mtrc[0][1]
+			+ p_src.y * mtrc[0][1]
+			+ p_src.z * mtrc[2][1]
+			+ mtrc[3][1];
+	p_dest->x = pixel.x;
+	p_dest->y = pixel.y;
 }

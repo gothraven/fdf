@@ -6,7 +6,7 @@
 #    By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/29 21:53:50 by szaghban          #+#    #+#              #
-#    Updated: 2018/10/07 19:17:11 by szaghban         ###   ########.fr        #
+#    Updated: 2018/10/10 22:28:59 by szaghban         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJDIR = ./objs/
 SRCDIR = ./srcs/
 INCDIR = ./includes/
 SRCFILES = main.c ft_file_to_image.c ft_image_init.c ft_storgb.c\
-			ft_matrice.c ft_paint.c ft_engine.c ft_rotation.c\
+			ft_matrice.c ft_paint.c ft_engine.c ft_rotation.c ft_paint_line.c\
 
 all: $(NAME)
 
