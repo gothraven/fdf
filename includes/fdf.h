@@ -6,7 +6,7 @@
 /*   By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/29 21:58:46 by szaghban          #+#    #+#             */
-/*   Updated: 2018/10/10 23:11:55 by szaghban         ###   ########.fr       */
+/*   Updated: 2018/10/13 00:39:54 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,18 @@
 # define SECUREE(x) if (!x) exit(-1);
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
+
+# define ESC 53
+# define Q_KEY 12
+# define E_KEY 14
+# define ARROW_KEY_UP 126
+# define ARROW_KEY_DOWN 125
+# define ARROW_KEY_LEFT 123
+# define ARROW_KEY_RIGHT 124
+# define W_KEY 13
+# define A_KEY 0
+# define S_KEY 1
+# define D_KEY 2
 
 typedef struct 	s_rgb
 {
@@ -93,5 +105,7 @@ int		ft_paint(t_img *image);
 int		ft_repaint(t_img *image);
 void	ft_engine_loop(t_img *image);
 void	ft_paint_line(t_img *image, int i, int j);
+float	_z_options(t_img *image, t_2dp pixel, t_2dp p1, t_2dp p2,  float opt[3]);
+int		_flag(float opt[3]);
 
 #endif
