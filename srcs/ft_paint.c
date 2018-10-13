@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_paint.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+        */
+/*   By: szaghban <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/02 23:26:51 by gothraven         #+#    #+#             */
-/*   Updated: 2018/10/13 00:39:53 by szaghban         ###   ########.fr       */
+/*   Updated: 2018/10/13 21:51:54 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,31 +28,23 @@ void	ft_camera_prespective(t_img *image)
 {
 	float	camera_mtrc[4][4];
 	int		i;
-
-	ft_idnt_mtrc(camera_mtrc);
-	ft_translate_mtrc(camera_mtrc, -(image->width / 2), -(image->height / 2), 0);
-	ft_rotate_mtrc(camera_mtrc, 0, 0, .785);
-	ft_rotate_mtrc(camera_mtrc, .785, 0, 0);
-	SECUREE((image->pixels = (t_2dp*)malloc(image->size * sizeof(t_2dp))));
-	i = -1;
-	while (++i < image->size)
-		ft_mult_vec_mtrc(image->points[i], camera_mtrc, &image->pixels[i]);
-}
-
-void	ft_update_view(t_img *image)
-{
-	float	view_mtrc[4][4];
-	int		i;
 	int		scale;
 
 	scale = image->settings.scale;
-	ft_idnt_mtrc(view_mtrc);
-	ft_scale_mtrc(view_mtrc, scale, scale, scale);
-	ft_rotate_mtrc(view_mtrc, image->settings.xrot, image->settings.yrot, 0);
-	ft_translate_mtrc(view_mtrc, image->settings.xmove, image->settings.ymove, 0);
+	ft_idnt_mtrc(camera_mtrc);
+	ft_translate_mtrc(
+			camera_mtrc, -(image->width / 2), -(image->height / 2), 0);
+	ft_rotate_mtrc(camera_mtrc, 0, 0, .785);
+	ft_rotate_mtrc(camera_mtrc, .785, 0, 0);
+	ft_scale_mtrc(camera_mtrc, scale, scale, scale);
+	ft_rotate_mtrc(camera_mtrc, image->settings.xrot, image->settings.yrot, 0);
+	ft_translate_mtrc(
+			camera_mtrc, image->settings.xmove, image->settings.ymove, 0);
+	if (image->pixels == NULL)
+		SECUREE((image->pixels = (t_2dp*)malloc(image->size * sizeof(t_2dp))));
 	i = -1;
 	while (++i < image->size)
-		ft_mult_vec_mtrc(image->points[i], view_mtrc, &image->pixels[i]);
+		ft_mult_vec_mtrc(image->points[i], camera_mtrc, &image->pixels[i]);
 }
 
 int		ft_paint(t_img *image)
@@ -60,7 +52,6 @@ int		ft_paint(t_img *image)
 	int	i;
 
 	ft_camera_prespective(image);
-	ft_update_view(image);
 	ft_update_2d_pixels(image);
 	i = -1;
 	while (++i < image->size)
@@ -81,5 +72,5 @@ int		ft_repaint(t_img *image)
 	mlx_ptr = image->window->mlx;
 	mlx_win_ptr = image->window->mlx_win;
 	mlx_clear_window(mlx_ptr, mlx_win_ptr);
-	return ft_paint(image);
+	return (ft_paint(image));
 }

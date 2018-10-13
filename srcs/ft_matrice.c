@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_matrice.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+        */
+/*   By: szaghban <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 20:13:35 by gothraven         #+#    #+#             */
-/*   Updated: 2018/10/07 20:42:25 by szaghban         ###   ########.fr       */
+/*   Created: 2018/10/02 20:13:35 by szaghban          #+#    #+#             */
+/*   Updated: 2018/10/13 21:00:56 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	ft_idnt_mtrc(float mtrc[4][4])
 	mtrc[3][3] = 1;
 }
 
-void	ft_mult_mtrc(float mtrc_1[4][4], float mtrc_2[4][4], float mtrc_rsult[4][4])
+void	ft_mult_mtrc(
+		float mtrc_1[4][4], float mtrc_2[4][4], float mtrc_rsult[4][4])
 {
 	int	i;
 	int	j;

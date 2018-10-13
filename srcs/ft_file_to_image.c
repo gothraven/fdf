@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_file_to_image.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+        */
+/*   By: szaghban <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/30 15:12:32 by gothraven         #+#    #+#             */
-/*   Updated: 2018/10/07 18:24:52 by szaghban         ###   ########.fr       */
+/*   Created: 2018/09/30 15:12:32 by szaghban          #+#    #+#             */
+/*   Updated: 2018/10/13 21:00:22 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_3dp	__3dp(float x, float y, float z)
+t_3dp	create_3dp(float x, float y, float z)
 {
 	t_3dp	point;
 
@@ -28,12 +28,13 @@ void	ft_save_points(t_img *image, char **points)
 	int offset;
 
 	SECUREE((image->points = (t_3dp*)realloc(
-		image->points, image->size  * sizeof(t_3dp))));
+		image->points, image->size * sizeof(t_3dp))));
 	x = -1;
 	offset = image->size - image->width;
 	while (++x < image->width)
 	{
-		image->points[offset] = __3dp(x, image->height - 1, ft_atoi(points[x]));
+		image->points[offset] = create_3dp(
+				x, image->height - 1, ft_atoi(points[x]));
 		if (image->points[offset].z < image->settings.zmin)
 			image->settings.zmin = image->points[offset].z;
 		if (image->points[offset].z > image->settings.zmax)
@@ -57,7 +58,7 @@ void	ft_parse_file(int fd, t_img *image)
 		if (image->width != 0 && image->width != width)
 		{
 			ft_putstr("Error: invalid map\n");
-			// TODO free everything.
+			ft_free_image(image);
 			exit(-1);
 		}
 		image->width = width;
@@ -82,8 +83,8 @@ int		ft_open_file(const char *fname)
 
 t_img	*ft_file_to_image(t_img *image, const char *fname)
 {
-	int	fd;
-	float tmp;
+	int		fd;
+	float	tmp;
 
 	fd = ft_open_file(fname);
 	ft_parse_file(fd, image);
@@ -97,13 +98,5 @@ t_img	*ft_file_to_image(t_img *image, const char *fname)
 		image->settings.zmin += tmp;
 		image->settings.zmax += tmp;
 	}
-
-	return image;
+	return (image);
 }
-
-
-
-
-
-
-
