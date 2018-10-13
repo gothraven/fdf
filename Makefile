@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gothraven <gothraven@student.42.fr>        +#+  +:+       +#+         #
+#    By: szaghban <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/29 21:53:50 by szaghban          #+#    #+#              #
-#    Updated: 2018/10/13 00:29:17 by szaghban         ###   ########.fr        #
+#    Updated: 2018/10/13 20:59:20 by szaghban         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,8 @@ OBJS = $(addprefix $(OBJDIR), $(SRCFILES:.c=.o))
 OBJDIR = ./objs/
 SRCDIR = ./srcs/
 INCDIR = ./includes/
-SRCFILES = main.c ft_file_to_image.c ft_image_init.c ft_storgb.c\
-			ft_matrice.c ft_paint.c ft_engine.c ft_rotation.c\
-			ft_paint_line.c ft_print_helpers.c\
+SRCFILES =	main.c ft_file_to_image.c ft_image_init.c ft_matrice.c\
+			ft_paint.c ft_engine.c ft_rotation.c ft_paint_line.c\
 
 all: $(NAME)
 
