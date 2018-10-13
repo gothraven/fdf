@@ -17,9 +17,11 @@ void	ft_paint_pixel(t_img *image, t_2dp p, float z, int flag)
 	void *mlx_ptr;
 	void *mlx_win_ptr;
 
+  (void)z;
+  (void)flag;
 	mlx_ptr = image->window->mlx;
 	mlx_win_ptr = image->window->mlx_win;
-	mlx_pixel_put(mlx_ptr, mlx_win_ptr, p.x, p.y, z + flag);
+	mlx_pixel_put(mlx_ptr, mlx_win_ptr, p.x, p.y, 255);
 }
 
 void	on_x_axis(t_img *image, t_2dp p1, t_2dp p2, float opt[3])

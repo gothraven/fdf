@@ -19,24 +19,20 @@ int	_expose_hook_(t_img *image)
 
 int	_key_hook_(int keycode, t_img *image)
 {
-	if (keycode == ESC)
+	if (keycode == ESC) {
 		exit(0);
+    //TODO free things here
+  }
 	if (keycode == Q_KEY || keycode == E_KEY)
-		image->settings.scale += keycode == Q_KEY ? 0.05 : -0.05;
+		image->settings.scale += keycode == Q_KEY ? -1 : 1;
 	if (keycode == ARROW_KEY_UP || keycode == ARROW_KEY_DOWN)
-		image->settings.ymove += keycode == ARROW_KEY_UP ? .5 : - .5;
+		image->settings.ymove += keycode == ARROW_KEY_UP ? - 1 : 1;
 	if (keycode == ARROW_KEY_LEFT || keycode == ARROW_KEY_RIGHT)
-		image->settings.xmove += keycode == ARROW_KEY_LEFT ? .5 : - .5;
+		image->settings.xmove += keycode == ARROW_KEY_LEFT ? - 1 : 1;
 	if (keycode == W_KEY || keycode == S_KEY)
-		image->settings.xrot += keycode == W_KEY ? .1 : - .1;
+		image->settings.xrot += keycode == W_KEY ? 0.1 : - 0.1;
 	if (keycode == A_KEY || keycode == D_KEY)
-		image->settings.yrot += keycode == A_KEY ? .1 : - .1;
-	printf("scale=%f, ymove=%f, xmove=%f, xrot=%f, yrot=%f\n",
-			image->settings.scale,
-			image->settings.ymove,
-			image->settings.xmove,
-			image->settings.xrot,
-			image->settings.yrot);
+		image->settings.yrot += keycode == A_KEY ? 0.1 : - 0.1;
 	ft_repaint(image);
 	return (0);
 }
