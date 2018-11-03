@@ -77,6 +77,7 @@ int		ft_paint(t_img *image)
 {
 	int	i;
 
+	ft_clear_image(image);
 	ft_camera_prespective(image);
 	ft_update_2d_pixels(image);
 	ft_paint_screen_status(image);
@@ -88,6 +89,10 @@ int		ft_paint(t_img *image)
 		if ((i + image->width) < image->size)
 			ft_paint_line(image, i, i + image->width);
 	}
+	mlx_put_image_to_window(
+		image->window->mlx,
+		image->window->mlx_win,
+		image->window->mlx_img, 0, 0);
 	return (0);
 }
 

@@ -12,16 +12,6 @@
 
 #include "fdf.h"
 
-void	ft_paint_pixel(t_img *image, t_2dp p)
-{
-	void *mlx_ptr;
-	void *mlx_win_ptr;
-
-	mlx_ptr = image->window->mlx;
-	mlx_win_ptr = image->window->mlx_win;
-	mlx_pixel_put(mlx_ptr, mlx_win_ptr, p.x, p.y, 0xffffff);
-}
-
 void	on_x_axis(t_img *image, t_2dp p1, t_2dp p2)
 {
 	t_2dp	pixel;
@@ -36,7 +26,7 @@ void	on_x_axis(t_img *image, t_2dp p1, t_2dp p2)
 	e = miss - 1.0;
 	while (pixel.x <= p2.x)
 	{
-		ft_paint_pixel(image, pixel);
+		image->img_data[(int)(pixel.y) * WIN_WIDTH + (int)(pixel.x)] = 0xffffff;
 		if (e >= 0.0)
 		{
 			pixel.y = neg_y ? pixel.y - 1.0 : pixel.y + 1.0;
@@ -68,7 +58,7 @@ void	on_y_axis(t_img *image, t_2dp p1, t_2dp p2)
 			pixel.x = neg_x ? pixel.x - 1.0 : pixel.x + 1.0;
 			e -= 1.0;
 		}
-		ft_paint_pixel(image, pixel);
+		image->img_data[(int)(pixel.y) * WIN_WIDTH + (int)(pixel.x)] = 0xffffff;
 		pixel.y += 1.0;
 		e += miss;
 	}
@@ -94,5 +84,23 @@ void	ft_paint_line(t_img *image, int i, int j)
 			on_y_axis(image, image->pixels[i], image->pixels[j]);
 		else
 			ft_paint_line(image, j, i);
+	}
+}
+
+void	ft_clear_image(t_img *image)
+{
+	int x;
+	int y;
+
+	y = 0;
+	while (y < WIN_HEIGHT)
+	{
+		x = 0;
+		while (x < WIN_WIDTH)
+		{
+			image->img_data[y * WIN_WIDTH + x] = 0;
+			x++;
+		}
+		y++;
 	}
 }

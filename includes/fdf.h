@@ -42,6 +42,7 @@ typedef struct	s_win
 {
 	void		*mlx;
 	void		*mlx_win;
+	void		*mlx_img;
 	int			height;
 	int			width;
 }				t_win;
@@ -79,6 +80,7 @@ typedef	struct	s_img
 	t_win		*window;
 	t_3dp		*points;
 	t_2dp		*pixels;
+	int			*img_data;
 }				t_img;
 
 t_img			*ft_image_init();
@@ -93,6 +95,7 @@ void			ft_mult_vec_mtrc(t_3dp p_src, float mtrc[4][4], t_2dp *p_dest);
 void			ft_rotate_mtrc(float mtrc[4][4], float rx, float ry, float rz);
 int				ft_paint(t_img *image);
 int				ft_repaint(t_img *image);
+void			ft_clear_image(t_img *image);
 void			ft_engine_loop(t_img *image);
 void			ft_paint_line(t_img *image, int i, int j);
 void			ft_free_image(t_img *image);

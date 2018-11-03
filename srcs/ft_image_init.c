@@ -26,12 +26,17 @@ void	ft_settings_init(t_img *image)
 t_img	*ft_image_init(void)
 {
 	t_img	*image;
+	int		tmp[3];
 
 	SECUREE((image = (t_img*)malloc(sizeof(t_img))));
 	SECUREE((image->window = (t_win*)malloc(sizeof(t_win))));
 	image->window->mlx = mlx_init();
 	image->window->mlx_win = mlx_new_window(
 			image->window->mlx, WIN_WIDTH, WIN_HEIGHT, "FDF-42");
+	image->window->mlx_img = mlx_new_image(
+			image->window->mlx, WIN_WIDTH, WIN_HEIGHT);
+	image->img_data = (int*)mlx_get_data_addr(
+			image->window->mlx_img, tmp, tmp + 1, tmp + 2);
 	image->window->width = WIN_WIDTH;
 	image->window->height = WIN_HEIGHT;
 	image->width = 0;
