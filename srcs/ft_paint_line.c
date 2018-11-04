@@ -6,11 +6,18 @@
 /*   By: szaghban <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 21:23:37 by szaghban          #+#    #+#             */
-/*   Updated: 2018/10/13 21:53:46 by szaghban         ###   ########.fr       */
+/*   Updated: 2018/11/04 23:36:24 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	ft_paint_pixel(t_img *image, t_2dp p)
+{
+	if (p.x <= 0 || p.x >= WIN_WIDTH || p.y <= 0 || p.y >= WIN_HEIGHT)
+		return;
+	image->img_data[(int)(p.y) * WIN_WIDTH + (int)(p.x)] = 0xffffff;
+}
 
 void	on_x_axis(t_img *image, t_2dp p1, t_2dp p2)
 {
@@ -26,7 +33,7 @@ void	on_x_axis(t_img *image, t_2dp p1, t_2dp p2)
 	e = miss - 1.0;
 	while (pixel.x <= p2.x)
 	{
-		image->img_data[(int)(pixel.y) * WIN_WIDTH + (int)(pixel.x)] = 0xffffff;
+		ft_paint_pixel(image, pixel);
 		if (e >= 0.0)
 		{
 			pixel.y = neg_y ? pixel.y - 1.0 : pixel.y + 1.0;
@@ -50,7 +57,7 @@ void	on_y_axis(t_img *image, t_2dp p1, t_2dp p2)
 	neg_x = p2.x < p1.x ? 1 : 0;
 	e = (p2.x - p1.x) > 0.0 ? -(1.0 - (p1.x - pixel.x) - (p1.y - pixel.y) *
 			((p2.x - p1.x) / (p2.y - p1.y))) : -((p1.x - pixel.x) -
-			(p1.y - pixel.y) * ((p2.x - p1.x) / (p2.y - p1.y)));
+		(p1.y - pixel.y) * ((p2.x - p1.x) / (p2.y - p1.y)));
 	while (pixel.y <= p2.y)
 	{
 		while (e >= 0.0)
@@ -58,7 +65,7 @@ void	on_y_axis(t_img *image, t_2dp p1, t_2dp p2)
 			pixel.x = neg_x ? pixel.x - 1.0 : pixel.x + 1.0;
 			e -= 1.0;
 		}
-		image->img_data[(int)(pixel.y) * WIN_WIDTH + (int)(pixel.x)] = 0xffffff;
+		ft_paint_pixel(image, pixel);
 		pixel.y += 1.0;
 		e += miss;
 	}

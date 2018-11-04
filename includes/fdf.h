@@ -6,7 +6,7 @@
 /*   By: szaghban <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/29 21:58:46 by szaghban          #+#    #+#             */
-/*   Updated: 2018/10/13 21:04:33 by szaghban         ###   ########.fr       */
+/*   Updated: 2018/11/04 23:28:55 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # include <stdio.h>
 
 # define SECUREE(x) if (!x) exit(-1);
-# define WIN_WIDTH 1920
-# define WIN_HEIGHT 1080
+# define WIN_WIDTH 2560
+# define WIN_HEIGHT 1440
 
 # define ESC 53
 # define Q_KEY 12
