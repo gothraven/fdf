@@ -22,8 +22,7 @@ OBJS = $(addprefix $(OBJDIR), $(SRCFILES:.c=.o))
 OBJDIR = ./objs/
 SRCDIR = ./srcs/
 INCDIR = ./includes/
-SRCFILES =	main.c ft_file_to_image.c ft_image_init.c ft_matrice.c\
-			ft_paint.c ft_engine.c ft_rotation.c ft_paint_line.c\
+SRCFILES = main.c
 
 all: $(NAME)
 
