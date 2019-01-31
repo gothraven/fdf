@@ -1,6 +1,6 @@
 #include "fdf.h"
 #include "libft.h"
-#include "get_next_line.h"
+#include "gnl.h"
 #include "error_message.h"
 #include <stdlib.h>
 

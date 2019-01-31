@@ -3,6 +3,7 @@
 #include "mlx.h"
 #include "color.h"
 
+
 /*
 ** Put pixel into map image
 */
@@ -67,6 +68,23 @@ static void	draw_background(t_fdf *fdf)
 		image[i] = (i % WIDTH < MENU_WIDTH) ? MENU_BACKGROUND : BACKGROUND;
 		i++;
 	}
+}
+
+/*
+** Create t_point element (x value + y value + z value + color value)
+*/
+t_point	new_point(int x, int y, t_map *map)
+{
+	t_point	point;
+	int		index;
+
+	index = (y * map->width + x);
+	point.x = x;
+	point.y = y;
+	point.z = map->coords_arr[index];
+	point.color = (map->colors_arr[index] == -1) ?
+			get_default_color(point.z, map) : map->colors_arr[index];
+	return (point);
 }
 
 /*
