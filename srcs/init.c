@@ -1,4 +1,7 @@
 #include "fdf.h"
+#include "libft.h"
+#include "mlx.h"
+#include "error_message.h"
 
 /*
 ** Initialize t_map element

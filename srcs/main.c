@@ -1,4 +1,10 @@
 #include "fdf.h"
+#include "mlx.h"
+#include "error_message.h"
+#include <errno.h>
+#include <fcntl.h>
+#include <stdlib.h>
+
 
 int		main(int argc, char **argv)
 {

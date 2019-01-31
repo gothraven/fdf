@@ -18,15 +18,6 @@
 # define WIDTH			1920
 # define MENU_WIDTH		250
 
-#include "mlx.h"
-#include "libft.h"
-#include "get_next_line.h"
-#include "error_message.h"
-#include <errno.h>
-#include <fcntl.h>
-#include <stdlib.h>
-
-
 typedef enum
 {
 	false,
