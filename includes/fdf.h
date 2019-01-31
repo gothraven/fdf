@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: szaghban <szaghban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/02 10:39:59 by vbrazhni          #+#    #+#             */
-/*   Updated: 2018/08/02 10:40:00 by vbrazhni         ###   ########.fr       */
+/*   Created: 2019/01/31 15:39:22 by szaghban          #+#    #+#             */
+/*   Updated: 2019/01/31 15:53:58 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,19 @@
 # define HEIGHT			1080
 # define WIDTH			1920
 # define MENU_WIDTH		250
+
+# define FT_MIN(A, B) (((A) < (B)) ? (A) : (B))
+# define FT_MAX(A, B) (((A) > (B)) ? (A) : (B))
+
+# define FT_ABS(X) (((X) < 0) ? (-(X)) : (X))
+
+# define FT_ULONG_MAX	((unsigned long)(~0L))
+# define FT_LONG_MAX	((long)(FT_ULONG_MAX >> 1))
+# define FT_LONG_MIN	((long)(~FT_LONG_MAX))
+
+# define FT_UINT_MAX	((unsigned)(~0L))
+# define FT_INT_MAX		((int)(FT_UINT_MAX >> 1))
+# define FT_INT_MIN		((int)(~FT_INT_MAX))
 
 typedef enum
 {
@@ -117,7 +130,7 @@ t_point	project(t_point p, t_fdf *fdf);
 
 void	print_menu(t_fdf *fdf);
 
-int	close(void *param);
+int	end(void *param);
 
 void	setup_controls(t_fdf *fdf);
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   window_actions.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szaghban <szaghban@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/31 15:38:54 by szaghban          #+#    #+#             */
+/*   Updated: 2019/01/31 15:55:39 by szaghban         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "mlx.h"
 #include "fdf.h"
 #include <stdlib.h>
@@ -5,7 +17,7 @@
 /*
 ** Close window with 'X'
 */
-int		close(void *param)
+int		end(void *param)
 {
 	(void)param;
 	exit(0);
@@ -18,7 +30,7 @@ int		close(void *param)
 void	setup_controls(t_fdf *fdf)
 {
 	mlx_hook(fdf->win, 2, 0, key_press, fdf);
-	mlx_hook(fdf->win, 17, 0, close, fdf);
+	mlx_hook(fdf->win, 17, 0, end, fdf);
 	mlx_hook(fdf->win, 4, 0, mouse_press, fdf);
 	mlx_hook(fdf->win, 5, 0, mouse_release, fdf);
 	mlx_hook(fdf->win, 6, 0, mouse_move, fdf);

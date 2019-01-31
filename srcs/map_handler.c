@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_handler.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szaghban <szaghban@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/31 15:38:30 by szaghban          #+#    #+#             */
+/*   Updated: 2019/01/31 15:45:45 by szaghban         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 #include "libft.h"
 #include "gnl.h"
@@ -70,7 +82,7 @@ int					read_map(const int fd, t_coord_val **coords_stack, t_map *map)
 	int		result;
 	char	**coords_line;
 
-	while ((result = get_next_line(fd, &line)) == 1)
+	while ((result = ft_gnl(fd, &line)) == 1)
 	{
 		if (!(coords_line = ft_strsplit(line, ' ')))
 			terminate(ERR_MAP_READING);

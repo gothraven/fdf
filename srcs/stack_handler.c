@@ -1,4 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_handler.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szaghban <szaghban@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/31 15:38:47 by szaghban          #+#    #+#             */
+/*   Updated: 2019/01/31 16:25:04 by szaghban         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
+#include "libft.h"
+#include "error_message.h"
 #include <stdlib.h>
 
 /*
@@ -37,7 +51,7 @@ t_coord_val	*pop(t_coord_val **coords_stack)
 void		stack_to_arrays(t_coord_val **coords_stack, t_map *map)
 {
 	t_coord_val	*coord;
-	ssize_t		i;
+	size_t		i;
 	size_t		arr_size;
 
 	arr_size = map->width * map->height * sizeof(int);
