@@ -6,7 +6,7 @@
 /*   By: szaghban <szaghban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 15:38:23 by szaghban          #+#    #+#             */
-/*   Updated: 2019/02/16 15:32:53 by szaghban         ###   ########.fr       */
+/*   Updated: 2019/02/16 16:11:09 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ int			key_press(int key, void *param)
 		|| key == NUM_PAD_3 || key == MAIN_PAD_3
 		|| key == NUM_PAD_4 || key == MAIN_PAD_4
 		|| key == NUM_PAD_6 || key == MAIN_PAD_6
-		|| key == NUM_PAD_7 || key == MAIN_PAD_7
-		|| key == NUM_PAD_8 || key == MAIN_PAD_8
-		|| key == NUM_PAD_9 || key == MAIN_PAD_9)
+		|| key == NUM_PAD_8 || key == MAIN_PAD_8)
 		rotate(key, fdf);
 	else if (key == MAIN_PAD_LESS || key == MAIN_PAD_MORE)
 		flatten(key, fdf);

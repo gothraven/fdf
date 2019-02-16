@@ -6,7 +6,7 @@
 /*   By: szaghban <szaghban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 15:38:08 by szaghban          #+#    #+#             */
-/*   Updated: 2019/02/16 15:32:51 by szaghban         ###   ########.fr       */
+/*   Updated: 2019/02/16 16:10:51 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,9 @@ void	rotate(int key, t_fdf *fdf)
 		fdf->camera->beta -= 0.05;
 	else if (key == NUM_PAD_6 || key == MAIN_PAD_6)
 		fdf->camera->beta += 0.05;
-	else if (key == NUM_PAD_1 || key == MAIN_PAD_1
-		|| key == NUM_PAD_3 || key == MAIN_PAD_3)
+	else if (key == NUM_PAD_1 || key == MAIN_PAD_1)
 		fdf->camera->gamma += 0.05;
-	else if (key == NUM_PAD_7 || key == MAIN_PAD_7
-		|| key == NUM_PAD_9 || key == MAIN_PAD_9)
+	else if (key == NUM_PAD_3 || key == MAIN_PAD_3)
 		fdf->camera->gamma -= 0.05;
 	draw(fdf->map, fdf);
 }
