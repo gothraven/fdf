@@ -6,7 +6,7 @@
 #    By: szaghban <szaghban@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/31 15:40:04 by szaghban          #+#    #+#              #
-#    Updated: 2019/02/16 15:33:54 by szaghban         ###   ########.fr        #
+#    Updated: 2019/02/16 15:53:13 by szaghban         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,9 @@ $(LIBFT):
 $(MINILIBX):
 	@echo "$(NAME): $(GREEN)Creating $(MINILIBX)...$(RESET)"
 	@$(MAKE) -sC $(MINILIBX_DIRECTORY)
+
+norme:
+	@norminette includes srcs libft/includes libft/srcs
 
 clean:
 	@$(MAKE) -sC $(LIBFT_DIRECTORY) clean
