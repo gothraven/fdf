@@ -17,6 +17,7 @@
 /*
 ** Print "How to Use" instruction.
 */
+
 void	print_menu(t_fdf *fdf)
 {
 	int		y;

@@ -18,6 +18,7 @@
 /*
 ** Initialize t_map element
 */
+
 t_map		*map_init(void)
 {
 	t_map	*map;
@@ -37,6 +38,7 @@ t_map		*map_init(void)
 /*
 ** Initialize t_fdf element
 */
+
 t_fdf		*fdf_init(t_map *map)
 {
 	t_fdf	*fdf;
@@ -60,6 +62,7 @@ t_fdf		*fdf_init(t_map *map)
 /*
 ** Initialize t_camera element
 */
+
 t_camera	*camera_init(t_fdf *fdf)
 {
 	t_camera	*camera;

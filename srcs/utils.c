@@ -6,7 +6,7 @@
 /*   By: szaghban <szaghban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 15:38:50 by szaghban          #+#    #+#             */
-/*   Updated: 2019/01/31 15:38:51 by szaghban         ###   ########.fr       */
+/*   Updated: 2019/02/16 15:09:00 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 #include <stdio.h>
 #include <errno.h>
 
-
 /*
 ** Terminate execution and display error message
 */
-void	terminate(char *s)
+
+void				terminate(char *s)
 {
 	if (errno == 0)
 		ft_putendl_fd(s, 2);
@@ -32,10 +32,11 @@ void	terminate(char *s)
 /*
 ** Check is this char present in selected numeral system
 */
-static int		ft_isdigit_base(char c, int base)
+
+static int			ft_isdigit_base(char c, int base)
 {
-	const char	*digits = "0123456789ABCDEF";
-	int			i;
+	const char		*digits = "0123456789ABCDEF";
+	int				i;
 
 	i = 0;
 	while (i < base)
@@ -50,7 +51,8 @@ static int		ft_isdigit_base(char c, int base)
 /*
 ** Check is this string contain prefix of its numeral system
 */
-static t_bool	ft_has_prefix(const char *str, int base)
+
+static t_bool		ft_has_prefix(const char *str, int base)
 {
 	size_t	i;
 
@@ -72,10 +74,11 @@ static t_bool	ft_has_prefix(const char *str, int base)
 /*
 ** Check is this string a number according to the selected numeral system
 */
-t_bool			ft_isnumber(char *str, int base)
+
+t_bool				ft_isnumber(char *str, int base)
 {
-	size_t		i;
-	size_t		digits;
+	size_t			i;
+	size_t			digits;
 
 	i = 0;
 	digits = 0;
@@ -100,7 +103,8 @@ t_bool			ft_isnumber(char *str, int base)
 /*
 ** Convert string to number according to the selected numeral system
 */
-int				ft_atoi_base(const char *str, int base)
+
+int					ft_atoi_base(const char *str, int base)
 {
 	unsigned long	result;
 	size_t			i;

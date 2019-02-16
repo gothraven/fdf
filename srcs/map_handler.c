@@ -16,10 +16,10 @@
 #include "error_message.h"
 #include <stdlib.h>
 
-
 /*
 ** Free array that was returned by ft_strsplit()
 */
+
 static void			free_strsplit_arr(char **arr)
 {
 	size_t i;
@@ -33,6 +33,7 @@ static void			free_strsplit_arr(char **arr)
 /*
 ** Create t_coord_val element with information about z and color value
 */
+
 static t_coord_val	*new_coord(char *s)
 {
 	t_coord_val	*coord;
@@ -57,7 +58,9 @@ static t_coord_val	*new_coord(char *s)
 ** Get coordinate values from line, create t_coord_val elements
 ** and them add to stack
 */
-static void			parse_line(char **coords_line, t_coord_val **coords_stack, t_map *map)
+
+static void			parse_line(
+		char **coords_line, t_coord_val **coords_stack, t_map *map)
 {
 	int	width;
 
@@ -76,7 +79,9 @@ static void			parse_line(char **coords_line, t_coord_val **coords_stack, t_map *
 /*
 ** Read map from file line by line
 */
-int					read_map(const int fd, t_coord_val **coords_stack, t_map *map)
+
+int					read_map(
+		const int fd, t_coord_val **coords_stack, t_map *map)
 {
 	char	*line;
 	int		result;

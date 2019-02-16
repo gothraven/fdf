@@ -6,7 +6,7 @@
 /*   By: szaghban <szaghban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 15:38:12 by szaghban          #+#    #+#             */
-/*   Updated: 2019/01/31 15:38:13 by szaghban         ###   ########.fr       */
+/*   Updated: 2019/02/16 15:02:47 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include "mlx.h"
 #include "color.h"
 
-
 /*
 ** Put pixel into map image
 */
-static void	put_pixel(t_fdf *fdf, int x, int y, int color)
+
+static void		put_pixel(t_fdf *fdf, int x, int y, int color)
 {
 	int		i;
 
@@ -35,15 +35,16 @@ static void	put_pixel(t_fdf *fdf, int x, int y, int color)
 /*
 ** Draw line
 */
-static void	draw_line(t_point f, t_point s, t_fdf *fdf)
-{
-	t_point	delta;
-	t_point	sign;
-	t_point	cur;
-	int		error[2];
 
-	delta.x = FT_ABS(s.x - f.x); //TODO change to static function
-	delta.y = FT_ABS(s.y - f.y); //TODO change to static function
+static void		draw_line(t_point f, t_point s, t_fdf *fdf)
+{
+	t_point		delta;
+	t_point		sign;
+	t_point		cur;
+	int			error[2];
+
+	delta.x = ft_abs(s.x - f.x);
+	delta.y = ft_abs(s.y - f.y);
 	sign.x = f.x < s.x ? 1 : -1;
 	sign.y = f.y < s.y ? 1 : -1;
 	error[0] = delta.x - delta.y;
@@ -67,7 +68,8 @@ static void	draw_line(t_point f, t_point s, t_fdf *fdf)
 /*
 ** Draw background colors (Menu background + main background)
 */
-static void	draw_background(t_fdf *fdf)
+
+static void		draw_background(t_fdf *fdf)
 {
 	int	*image;
 	int	i;
@@ -85,10 +87,11 @@ static void	draw_background(t_fdf *fdf)
 /*
 ** Create t_point element (x value + y value + z value + color value)
 */
-t_point	new_point(int x, int y, t_map *map)
+
+t_point			new_point(int x, int y, t_map *map)
 {
-	t_point	point;
-	int		index;
+	t_point		point;
+	int			index;
 
 	index = (y * map->width + x);
 	point.x = x;
@@ -102,7 +105,8 @@ t_point	new_point(int x, int y, t_map *map)
 /*
 ** Draw image
 */
-void		draw(t_map *map, t_fdf *fdf)
+
+void			draw(t_map *map, t_fdf *fdf)
 {
 	int		x;
 	int		y;

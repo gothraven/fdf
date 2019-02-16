@@ -13,10 +13,10 @@
 #include "fdf.h"
 #include "color.h"
 
-
 /*
 ** Get percent
 */
+
 double	percent(int start, int end, int current)
 {
 	double	placement;
@@ -30,7 +30,8 @@ double	percent(int start, int end, int current)
 /*
 ** Get color from default palette. Color depends on altitude
 */
-int	get_default_color(int z, t_map *map)
+
+int		get_default_color(int z, t_map *map)
 {
 	double	percentage;
 
@@ -51,7 +52,8 @@ int	get_default_color(int z, t_map *map)
 ** Get light for color. Result depends on point position.
 ** This function is needed to create linear gradient.
 */
-int	get_light(int start, int end, double percentage)
+
+int		get_light(int start, int end, double percentage)
 {
 	return ((int)((1 - percentage) * start + percentage * end));
 }
@@ -60,7 +62,8 @@ int	get_light(int start, int end, double percentage)
 ** Get color. Result depends on point position.
 ** This function is needed to create linear gradient.
 */
-int	get_color(t_point current, t_point start, t_point end, t_point delta)
+
+int		get_color(t_point current, t_point start, t_point end, t_point delta)
 {
 	int		red;
 	int		green;

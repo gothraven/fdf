@@ -17,6 +17,7 @@
 /*
 ** Close window with 'X'
 */
+
 int		end(void *param)
 {
 	(void)param;
@@ -27,6 +28,7 @@ int		end(void *param)
 /*
 ** Connect functions-controllers to window
 */
+
 void	setup_controls(t_fdf *fdf)
 {
 	mlx_hook(fdf->win, 2, 0, key_press, fdf);

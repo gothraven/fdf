@@ -17,6 +17,7 @@
 /*
 ** Handle key press
 */
+
 int			key_press(int key, void *param)
 {
 	t_fdf	*fdf;

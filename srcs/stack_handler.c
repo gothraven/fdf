@@ -18,6 +18,7 @@
 /*
 ** Add t_coord_val element to stack
 */
+
 void		push(t_coord_val **coords_stack, t_coord_val *new)
 {
 	if (coords_stack)
@@ -31,6 +32,7 @@ void		push(t_coord_val **coords_stack, t_coord_val *new)
 /*
 ** Get t_coord_val element from stack
 */
+
 t_coord_val	*pop(t_coord_val **coords_stack)
 {
 	t_coord_val *top;
@@ -48,11 +50,12 @@ t_coord_val	*pop(t_coord_val **coords_stack)
 ** Convert stack with t_coord_val elements (contains z value and color value)
 ** to array with z values and array with color values.
 */
+
 void		stack_to_arrays(t_coord_val **coords_stack, t_map *map)
 {
 	t_coord_val	*coord;
-	size_t		i;
-	size_t		arr_size;
+	ssize_t		i;
+	ssize_t		arr_size;
 
 	arr_size = map->width * map->height * sizeof(int);
 	if (!(map->coords_arr = (int *)ft_memalloc(arr_size)))

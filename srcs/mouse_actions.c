@@ -16,6 +16,7 @@
 /*
 ** Handle mouse press
 */
+
 int			mouse_press(int button, int x, int y, void *param)
 {
 	t_fdf	*fdf;
@@ -33,6 +34,7 @@ int			mouse_press(int button, int x, int y, void *param)
 /*
 ** Handle mouse release
 */
+
 int			mouse_release(int button, int x, int y, void *param)
 {
 	t_fdf	*fdf;
@@ -48,6 +50,7 @@ int			mouse_release(int button, int x, int y, void *param)
 /*
 ** Handle mouse move
 */
+
 int			mouse_move(int x, int y, void *param)
 {
 	t_fdf	*fdf;

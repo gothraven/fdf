@@ -16,6 +16,7 @@
 /*
 ** Zoom map
 */
+
 void	zoom(int key, t_fdf *fdf)
 {
 	if (key == NUM_PAD_PLUS ||
@@ -34,6 +35,7 @@ void	zoom(int key, t_fdf *fdf)
 /*
 ** Move map
 */
+
 void	move(int key, t_fdf *fdf)
 {
 	if (key == ARROW_LEFT)
@@ -50,6 +52,7 @@ void	move(int key, t_fdf *fdf)
 /*
 ** Rotate map
 */
+
 void	rotate(int key, t_fdf *fdf)
 {
 	if (key == NUM_PAD_2 || key == MAIN_PAD_2)
@@ -72,6 +75,7 @@ void	rotate(int key, t_fdf *fdf)
 /*
 ** Change z value. Make map more flatten
 */
+
 void	flatten(int key, t_fdf *fdf)
 {
 	if (key == MAIN_PAD_LESS)
@@ -88,6 +92,7 @@ void	flatten(int key, t_fdf *fdf)
 /*
 ** Change projection type
 */
+
 void	change_projection(int key, t_fdf *fdf)
 {
 	fdf->camera->alpha = 0;

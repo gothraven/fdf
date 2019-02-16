@@ -16,6 +16,7 @@
 /*
 ** Rotate coordinate by x axis
 */
+
 static void	rotate_x(int *y, int *z, double alpha)
 {
 	int previous_y;
@@ -28,6 +29,7 @@ static void	rotate_x(int *y, int *z, double alpha)
 /*
 ** Rotate coordinate by y axis
 */
+
 static void	rotate_y(int *x, int *z, double beta)
 {
 	int previous_x;
@@ -40,6 +42,7 @@ static void	rotate_y(int *x, int *z, double beta)
 /*
 ** Rotate coordinate by z axis
 */
+
 static void	rotate_z(int *x, int *y, double gamma)
 {
 	int previous_x;
@@ -54,6 +57,7 @@ static void	rotate_z(int *x, int *y, double gamma)
 /*
 ** Convert coordinate to iso projection
 */
+
 static void	iso(int *x, int *y, int z)
 {
 	int previous_x;
@@ -68,6 +72,7 @@ static void	iso(int *x, int *y, int z)
 /*
 ** Project coordinate to 2D plane
 */
+
 t_point		project(t_point p, t_fdf *fdf)
 {
 	p.x *= fdf->camera->zoom;
@@ -82,6 +87,6 @@ t_point		project(t_point p, t_fdf *fdf)
 		iso(&p.x, &p.y, p.z);
 	p.x += (WIDTH - MENU_WIDTH) / 2 + fdf->camera->x_offset + MENU_WIDTH;
 	p.y += (HEIGHT + fdf->map->height * fdf->camera->zoom) / 2
-								 + fdf->camera->y_offset;
+								+ fdf->camera->y_offset;
 	return (p);
 }
