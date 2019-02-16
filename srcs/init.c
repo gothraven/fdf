@@ -69,7 +69,7 @@ t_camera	*camera_init(t_fdf *fdf)
 
 	if (!(camera = (t_camera *)ft_memalloc(sizeof(t_camera))))
 		terminate(ERR_CAMERA_INIT);
-	camera->zoom = FT_MIN((WIDTH - MENU_WIDTH) / fdf->map->width / 2,
+	camera->zoom = ft_min((WIDTH - MENU_WIDTH) / fdf->map->width / 2,
 												HEIGHT / fdf->map->height / 2);
 	camera->alpha = 0;
 	camera->beta = 0;

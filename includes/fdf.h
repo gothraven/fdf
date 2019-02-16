@@ -18,11 +18,6 @@
 # define WIDTH			1920
 # define MENU_WIDTH		250
 
-# define FT_MIN(A, B) (((A) < (B)) ? (A) : (B))
-# define FT_MAX(A, B) (((A) > (B)) ? (A) : (B))
-
-# define FT_ABS(X) (((X) < 0) ? (-(X)) : (X))
-
 # define FT_ULONG_MAX	((unsigned long)(~0L))
 # define FT_LONG_MAX	((long)(FT_ULONG_MAX >> 1))
 # define FT_LONG_MIN	((long)(~FT_LONG_MAX))
