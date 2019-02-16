@@ -6,7 +6,7 @@
 /*   By: szaghban <szaghban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 15:39:22 by szaghban          #+#    #+#             */
-/*   Updated: 2019/02/16 15:50:02 by szaghban         ###   ########.fr       */
+/*   Updated: 2019/02/16 15:56:00 by szaghban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@
 # define HEIGHT			1080
 # define WIDTH			1920
 # define MENU_WIDTH		250
-
-# define FT_ULONG_MAX	((unsigned long)(~0L))
-# define FT_LONG_MAX	((long)(FT_ULONG_MAX >> 1))
-# define FT_LONG_MIN	((long)(~FT_LONG_MAX))
 
 # define FT_UINT_MAX	((unsigned)(~0L))
 # define FT_INT_MAX		((int)(FT_UINT_MAX >> 1))
